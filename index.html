@@ -33,74 +33,78 @@
   -->
 
   <!-- Your existing site content goes here -->
-
-  <!-- Floating chat button -->
+  <!-- Floating chat button + chatbox -->
+<div id="chatWidget">
+  <!-- Button -->
   <div id="chatButton">
-    <img src="https://cdn-icons-png.flaticon.com/512/134/134914.png" alt="Chat">
+    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
   </div>
 
-  <!-- Chat iframe container -->
+  <!-- Chat iframe -->
   <div id="chatContainer">
     <iframe 
       src="https://copilotstudio.microsoft.com/environments/Default-8900c5e2-270f-4ca0-9a2c-85889720d198/bots/cr2ca_agent_RV_EZy/webchat?__version__=2">
     </iframe>
   </div>
+</div>
 
-  <style>
-    /* Floating chat button */
-    #chatButton {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #006b3f; /* match your brand green */
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-    }
+<style>
+  /* Chat button */
+  #chatButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #006b3f; /* your brand green */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    color: white;
+    font-size: 28px;
+  }
 
-    #chatButton img {
-      width: 30px;
-      height: 30px;
-    }
+  /* Chat container (hidden by default) */
+  #chatContainer {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1000;
+    background: white;
+  }
 
-    /* Chatbox container */
-    #chatContainer {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 350px;
-      height: 500px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      display: none; /* hidden initially */
-      z-index: 1000;
-      background: white;
-    }
+  #chatContainer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
 
-    #chatContainer iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+<script>
+  const chatButton = document.getElementById("chatButton");
+  const chatContainer = document.getElementById("chatContainer");
+  let isOpen = false;
 
-  <script>
-    const chatButton = document.getElementById("chatButton");
-    const chatContainer = document.getElementById("chatContainer");
-    let isOpen = false;
+  chatButton.addEventListener("click", () => {
+    isOpen = !isOpen;
+    chatContainer.style.display = isOpen ? "block" : "none";
+  });
+</script>
 
-    chatButton.addEventListener("click", () => {
-      isOpen = !isOpen;
-      chatContainer.style.display = isOpen ? "block" : "none";
-    });
-  </script>
+<!-- Ionicons for the button icon -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 
@@ -1371,15 +1375,15 @@
 
   <!-- 
     - custom js link
-
-  <script src="./assets/js/script.js" defer></script>  -->
+-->
+  <script src="./assets/js/script.js" defer></script>  
 
   <!-- 
     - ionicon link
-
+ -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  -->
+ 
 </body>
 
 </html>
