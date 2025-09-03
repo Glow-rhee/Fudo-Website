@@ -7,31 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fudo - Supper fast ordering app in town!</title>
   
-
-  <!-- 
-    - favicon
-  -->
+  <!-- favicon -->
   <link rel="shortcut icon" href="./assets/images/favicon-16x16.png">
 
-  <!-- 
-    - custom css link
-  -->
+  <!-- custom css link -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!-- 
-    - google font link
-  -->
+  <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap"
     rel="stylesheet">
-
-  <!-- 
-    - preload images
-  -->
-  
-  
 
 </head>
 
@@ -40,6 +27,78 @@
   <!-- 
     - #HEADER
   -->
+
+  <!-- Your existing site content goes here -->
+
+  <!-- Floating chat button -->
+  <div id="chatButton">
+    <img src="https://cdn-icons-png.flaticon.com/512/134/134914.png" alt="Chat">
+  </div>
+
+  <!-- Chat iframe container -->
+  <div id="chatContainer">
+    <iframe 
+      src="https://copilotstudio.microsoft.com/environments/Default-8900c5e2-270f-4ca0-9a2c-85889720d198/bots/cr2ca_agent_RV_EZy/webchat?__version__=2">
+    </iframe>
+  </div>
+
+  <style>
+    /* Floating chat button */
+    #chatButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #006b3f; /* match your brand green */
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    #chatButton img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Chatbox container */
+    #chatContainer {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      display: none; /* hidden initially */
+      z-index: 1000;
+      background: white;
+    }
+
+    #chatContainer iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+
+  <script>
+    const chatButton = document.getElementById("chatButton");
+    const chatContainer = document.getElementById("chatContainer");
+    let isOpen = false;
+
+    chatButton.addEventListener("click", () => {
+      isOpen = !isOpen;
+      chatContainer.style.display = isOpen ? "block" : "none";
+    });
+  </script>
+</body>
+
 
   <header class="header" data-header>
     <div class="container">
