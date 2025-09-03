@@ -1275,7 +1275,7 @@ textarea.input-field {
 
 /*-----------------------------------*\
   #BACK TO TOP
-\*-----------------------------------*/
+
 
 .back-top-btn {
   position: fixed;
@@ -1300,7 +1300,7 @@ textarea.input-field {
 
 .back-top-btn:is(:hover, :focus) { background-color: var(--rich-black-fogra-29); }
 
-
+\*-----------------------------------*/
 
 
 
